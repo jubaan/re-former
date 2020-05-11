@@ -10,17 +10,24 @@
 #  <input type="submit" value="Submit">
 <%# </form> %>
 -->
+<!--
+ <%= form_with(model: @user, url: "/users", method:"post") do %>%>
+ <%= label(:username, "Username:") %>%>
+ <%= text_field(:user, :username) %><br><br>%>
 
-<%= form_with(model: @user, url: "/users", method:"post") do %>
-  <%= label(:username, "Username:") %>
-  <%= text_field(:user, :username) %><br><br>
+ <%= label(:email, "Email") %>%>
+ <%= text_field(:user, :email) %><br><br>%>
 
-  <%= label(:email, "Email") %>
-  <%= text_field(:user, :email) %><br><br>
+<%= label(:password, "Password:") %>%>
+<%= password_field(:user, :password) %><br><br>%>
 
-  <%= label(:password, "Password:") %>
-  <%= password_field(:user, :password) %><br><br>
+<%= submit_tag("Create User")%>%>
+<% end %>%>
+-->
 
-  <%= submit_tag("Create User")%>
-<% end %>
-
+<%= form_for(User.new) do |f| %>
+  Name: <%= f.text_field :username, placeholder: "User name" %><br>
+  Email: <%= f.text_field :email, placeholder: "email@example.com" %><br>
+  Password: <%= f.password_field :password, placeholder: "secret password" %><br>
+  <%= f.submit %>
+<% end %> 
