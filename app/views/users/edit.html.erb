@@ -25,7 +25,7 @@
 <% end %>%>
 -->
 
-<%= form_for(User.new) do |f| %>
+<%= form_for(@user) do |f| %>
   Name: <%= f.text_field :username, placeholder: "User name" %><br>
   Email: <%= f.text_field :email, placeholder: "email@example.com" %><br>
   Password: <%= f.password_field :password, placeholder: "secret password" %><br>
