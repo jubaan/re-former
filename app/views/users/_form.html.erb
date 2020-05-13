@@ -24,12 +24,12 @@
 <%# <% end %1> %>
 
 <!-- form_for -->
-<%# <%= form_for(@user) do |f| %1> %>
-<%#   Name: <%= f.text_field :username, placeholder: "User name" %1><br> %>
-<%#   Email: <%= f.text_field :email, placeholder: "email@example.com" %1><br> %>
-<%#   Password: <%= f.password_field :password, placeholder: "secret password" %1><br> %>
-<%#   <%= f.submit %1> %>
-<%# <% end %1> %>
+<%= form_for(@user) do |f| %>
+  Name: <%= f.text_field :username, placeholder: "User name" %><br>
+  Email: <%= f.text_field :email, placeholder: "email@example.com" %><br>
+  Password: <%= f.password_field :password, placeholder: "secret password" %><br>
+  <%= f.submit %>
+<% end %>
 
 
 <!--
@@ -47,4 +47,14 @@
 <%# <% end %>%>%>
 -->
 
-<%= render 'form', user: @user %>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
