@@ -17,7 +17,7 @@
 <%#   <%= label_tag(:username, "Name") %1> %>
 <%#   <%= text_field_tag(:username) %1><br><br> %>
 <%#   <%= label_tag(:email, "Email") %1> %>
-<%#   <%= text_field_tag(:email) %1><br><br> %>
+<%#   <%= email_field_tag(:email) %1><br><br> %>
 <%#   <%= label_tag(:password, "Password") %1> %>
 <%#   <%= password_field_tag(:password) %1><br><br> %>
 <%#   <%= submit_tag("Submit") %1> %>
@@ -26,7 +26,7 @@
 <!-- form_for -->
 <%= form_for(@user) do |f| %>
   Name: <%= f.text_field :username, placeholder: "User name" %><br>
-  Email: <%= f.text_field :email, placeholder: "email@example.com" %><br>
+  Email: <%= f.email_field :email, placeholder: "email@example.com" %><br>
   Password: <%= f.password_field :password, placeholder: "secret password" %><br>
   <%= f.submit %>
 <% end %>
@@ -34,11 +34,11 @@
 
 <!--
   <%# <%= form_with(model: @user, url: "/users", method:"post") do %>%>%>
-  <%# <%= label(:username, "Username:") %>%>%>
-  <%# <%= text_field(:user, :username) %><br><br>%>%>
+    <%# <%= label(:username, "Username:") %>%>%>
+    <%# <%= text_field(:user, :username) %><br><br>%>%>
 
-  <%# <%= label(:email, "Email") %>%>%>
-  <%# <%= text_field(:user, :email) %><br><br>%>%>
+    <%# <%= label(:email, "Email") %>%>%>
+    <%# <%= text_field(:user, :email) %><br><br>%>%>
 
 <%# <%= label(:password, "Password:") %>%>%>
 <%# <%= password_field(:user, :password) %><br><br>%>%>
@@ -50,11 +50,11 @@
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
- 
+
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
     </ul>
   </div>
 <% end %>
